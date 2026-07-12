@@ -204,13 +204,13 @@ sensor:
     accuracy_decimals: 1
     lambda: |-
       return (
-        id(pv1_power).state +
-        id(pv2_power).state +
+        id(${device_type}_PV1_Power).state +
+        id(${device_type}_PV2_Power).state +
         (id(pv3_power).state) +
         (id(pv4_power).state) +
-        id(battery_power).state -
-        id(generator_power_total).state -
-        id(output_power).state
+        id(${device_type}_Battery_output_power).state +
+        id(${device_type}_GEN_Phase_Power_Total).state -
+        id(${device_type}_Load_totalpower).state
       );
     icon: "mdi:home-lightning-bolt"
 
@@ -223,13 +223,13 @@ sensor:
     accuracy_decimals: 1
     lambda: |-
       return (
-        id(daily_energy_bought).state +
-        id(daily_pv_production).state +
-        id(daily_generator_production).state +
-        id(daily_battery_discharge).state -
-        id(daily_energy_sold).state -
-        id(daily_battery_charge).state -
-        id(daily_load_consumption).state
+        id(${device_type}_Daily_Energy_Bought).state +
+        id(${device_type}_Daily_Production).state +
+        //id(daily_generator_production).state +
+        id(${device_type}_daily_discharge_of_the_battery).state -
+        id(${device_type}_Daily_Energy_Sold).state -
+        id(${device_type}_daily_charge_of_the_battery).state -
+        id(${device_type}_Daily_Load_Power).state
       );
     icon: "mdi:home-lightning-bolt"
 
@@ -242,16 +242,16 @@ sensor:
     accuracy_decimals: 1
     lambda: |-
       return (
-        id(total_energy_bought).state +
-        id(total_pv_production).state +
-        id(total_generator_production).state +
-        id(total_battery_discharge).state -
-        id(total_energy_sold).state -
-        id(total_battery_charge).state -
-        id(total_consumption).state
+        id(${device_type}_Total_Energy_Bought).state +
+        id(${device_type}_Total_PV_Production).state +
+        //id(${device_type}_GEN_Total_Energy).state +
+        id(${device_type}_battery_total_discharge).state -
+        id(${device_type}_Total_Energy_Sold).state -
+        id(${device_type}_battery_total_charge).state -
+        id(${device_type}_Total_Load_Consumption).state
       );
     icon: "mdi:home-lightning-bolt"
-
+    
 binary_sensor:
   - platform: modbus_controller
     modbus_controller_id: ${modbus_controller_id}
