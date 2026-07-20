@@ -79,6 +79,8 @@ sensor:
     id: generator_power_total
     register_type: holding
     address: 166
+    force_new_range: ${split_refresh_ranges}
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"

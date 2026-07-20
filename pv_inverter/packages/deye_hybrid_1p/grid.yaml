@@ -62,6 +62,8 @@ sensor:
     name: "Grid Frequency"
     register_type: holding
     address: 79
+    force_new_range: ${split_refresh_ranges}
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "Hz"
     device_class: frequency
     accuracy_decimals: 2
@@ -76,7 +78,7 @@ sensor:
     id: grid_voltage_l1
     register_type: holding
     address: 150
-    skip_updates: ${fast_skip_updates}
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "V"
     device_class: voltage
     accuracy_decimals: 1
@@ -157,6 +159,8 @@ sensor:
     id: total_energy_bought_high_bytes
     address: 80
     register_type: holding
+    force_new_range: ${split_refresh_ranges}
+    skip_updates: ${energy_skip_updates}
     value_type: U_WORD
     internal: true
 
@@ -244,6 +248,7 @@ sensor:
     id: external_ct_l1_current
     register_type: holding
     address: 162
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "A"
     device_class: current
     accuracy_decimals: 2

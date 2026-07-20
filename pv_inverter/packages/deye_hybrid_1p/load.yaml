@@ -17,6 +17,7 @@ sensor:
     name: "Load L1 Voltage"
     register_type: holding
     address: 157
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "V"
     device_class: voltage
     accuracy_decimals: 1
@@ -79,6 +80,8 @@ sensor:
     name: "Load L1 Current"
     register_type: holding
     address: 179
+    force_new_range: ${split_refresh_ranges}
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "A"
     device_class: current
     accuracy_decimals: 1
@@ -119,6 +122,7 @@ sensor:
     id: daily_load_consumption
     register_type: holding
     address: 84
+    skip_updates: ${energy_skip_updates}
     unit_of_measurement: "kWh"
     device_class: energy
     state_class: "total_increasing"
