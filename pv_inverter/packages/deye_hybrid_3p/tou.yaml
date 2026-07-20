@@ -24,7 +24,7 @@ datetime:
     name: "Time of Use 1 Start"
     id: time_of_use_1_start
     type: time
-    update_interval: 15s
+    update_interval: 60s
     lambda: |-
       auto raw = id(time_of_use_1_start_raw).state;
       ${func_int_to_time}
@@ -37,7 +37,7 @@ datetime:
     name: "Time of Use 2 Start"
     id: time_of_use_2_start
     type: time
-    update_interval: 15s
+    update_interval: 60s
     lambda: |-
       auto raw = id(time_of_use_2_start_raw).state;
       ${func_int_to_time}
@@ -50,7 +50,7 @@ datetime:
     name: "Time of Use 3 Start"
     id: time_of_use_3_start
     type: time
-    update_interval: 15s
+    update_interval: 60s
     lambda: |-
       auto raw = id(time_of_use_3_start_raw).state;
       ${func_int_to_time}
@@ -63,7 +63,7 @@ datetime:
     name: "Time of Use 4 Start"
     id: time_of_use_4_start
     type: time
-    update_interval: 15s
+    update_interval: 60s
     lambda: |-
       auto raw = id(time_of_use_4_start_raw).state;
       ${func_int_to_time}
@@ -76,7 +76,7 @@ datetime:
     name: "Time of Use 5 Start"
     id: time_of_use_5_start
     type: time
-    update_interval: 15s
+    update_interval: 60s
     lambda: |-
       auto raw = id(time_of_use_5_start_raw).state;
       ${func_int_to_time}
@@ -89,7 +89,7 @@ datetime:
     name: "Time of Use 6 Start"
     id: time_of_use_6_start
     type: time
-    update_interval: 15s
+    update_interval: 60s
     lambda: |-
       auto raw = id(time_of_use_6_start_raw).state;
       ${func_int_to_time}
@@ -638,6 +638,7 @@ number:
     modbus_controller_id: ${modbus_controller_id}
     register_type: holding
     address: 148
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     min_value: 0
     max_value: 2359
@@ -970,7 +971,7 @@ number:
     min_value: 0
     max_value: 100
     step: 1
-    update_interval: 1s
+    update_interval: 60s
     icon: "mdi:battery-clock"
     disabled_by_default: true
     lambda: |-
@@ -1004,7 +1005,7 @@ number:
     min_value: 0
     max_value: 20000
     step: 1
-    update_interval: 1s
+    update_interval: 60s
     icon: "mdi:power-plug"
     disabled_by_default: true
     lambda: |-
@@ -1038,7 +1039,7 @@ number:
     min_value: 0
     max_value: 63
     step: 0.01
-    update_interval: 1s
+    update_interval: 60s
     icon: "mdi:sun-clock"
     disabled_by_default: true
     lambda: |-

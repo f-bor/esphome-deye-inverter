@@ -150,6 +150,7 @@ sensor:
     device_class: power
     state_class: total_increasing
     accuracy_decimals: 1
+    update_interval: ${update_interval}
     lambda: |-
       return (id(pv1_power).state + id(pv2_power).state + id(battery_power).state - id(output_power).state);
     icon: "mdi:home-lightning-bolt"
@@ -161,6 +162,7 @@ sensor:
     device_class: energy
     state_class: total_increasing
     accuracy_decimals: 1
+    update_interval: 30s
     lambda: |-
       return (
         id(daily_energy_bought).state +
@@ -180,6 +182,7 @@ sensor:
     device_class: energy
     state_class: total_increasing
     accuracy_decimals: 1
+    update_interval: 30s
     lambda: |-
       return (
         id(total_energy_bought).state +

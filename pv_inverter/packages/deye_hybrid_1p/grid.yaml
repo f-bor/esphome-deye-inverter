@@ -76,6 +76,7 @@ sensor:
     id: grid_voltage_l1
     register_type: holding
     address: 150
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "V"
     device_class: voltage
     accuracy_decimals: 1
@@ -167,6 +168,7 @@ sensor:
     device_class: energy
     state_class: "total_increasing"
     accuracy_decimals: 1
+    update_interval: 30s
     icon: "mdi:transmission-tower-import"
     lambda: |-
       auto high = id(total_energy_bought_high_bytes).state;
@@ -270,6 +272,7 @@ select:
     modbus_controller_id: ${modbus_controller_id}
     name: "Grid Frequency"
     address: 285
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     entity_category: config
     icon: "mdi:sine-wave"
@@ -282,6 +285,7 @@ select:
     modbus_controller_id: ${modbus_controller_id}
     name: "Charging Signal"
     address: 242
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     entity_category: config
     icon: "mdi:battery-charging"
@@ -309,6 +313,7 @@ switch:
     name: "Generator Grid Side"
     register_type: holding
     address: 280
+    skip_updates: ${config_skip_updates}
     bitmask: 12
     entity_category: config
     icon: "mdi:generator-stationary"
@@ -327,6 +332,7 @@ number:
     max_value: 290
     step: 1
     address: 287
+    skip_updates: ${config_skip_updates}
     multiply: 10    
     value_type: U_WORD
     mode: box

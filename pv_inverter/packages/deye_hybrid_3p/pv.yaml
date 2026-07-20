@@ -19,6 +19,7 @@ sensor:
     id: pv1_power
     register_type: holding
     address: 672
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"
@@ -74,7 +75,7 @@ sensor:
     device_class: power
     state_class: "measurement"
     accuracy_decimals: 0
-    update_interval: 5s
+    update_interval: ${update_interval}
     icon: "mdi:solar-power-variant"
     lambda: |-
       float pv1 = isnan(id(pv1_power).state) ? 0.0 : id(pv1_power).state;
@@ -212,6 +213,7 @@ sensor:
     id: total_pv_production
     register_type: holding
     address: 534
+    skip_updates: ${energy_skip_updates}
     unit_of_measurement: "kWh"
     device_class: energy
     state_class: "total_increasing"

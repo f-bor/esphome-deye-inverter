@@ -18,6 +18,7 @@ sensor:
     name: "DC Temperature"
     register_type: holding
     address: 540
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "°C"
     device_class: temperature
     accuracy_decimals: 1
@@ -47,6 +48,7 @@ sensor:
     name: "Output Frequency"
     register_type: holding
     address: 638
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "Hz"
     device_class: frequency
     accuracy_decimals: 2
@@ -148,6 +150,7 @@ sensor:
     name: "Output L1 Voltage"
     register_type: holding
     address: 627
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "V"
     device_class: voltage
     accuracy_decimals: 1

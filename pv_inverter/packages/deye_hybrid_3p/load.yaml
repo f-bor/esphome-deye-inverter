@@ -57,6 +57,7 @@ sensor:
     name: "Load L1 Power"
     register_type: holding
     address: 650
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"
@@ -105,6 +106,7 @@ sensor:
     name: "Load Frequency"
     register_type: holding
     address: 655
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "Hz"
     device_class: frequency
     accuracy_decimals: 2
@@ -148,6 +150,7 @@ sensor:
     name: "Load UPS L1 Power"
     register_type: holding
     address: 640
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"
@@ -202,6 +205,7 @@ sensor:
     device_class: power
     state_class: "measurement"
     accuracy_decimals: 1
+    update_interval: ${update_interval}
     lambda: |-
       return (
         id(${device_type}_PV1_Power).state +
@@ -221,6 +225,7 @@ sensor:
     device_class: energy
     state_class: total_increasing
     accuracy_decimals: 1
+    update_interval: 30s
     lambda: |-
       return (
         id(${device_type}_Daily_Energy_Bought).state +
@@ -240,6 +245,7 @@ sensor:
     device_class: energy
     state_class: total_increasing
     accuracy_decimals: 1
+    update_interval: 30s
     lambda: |-
       return (
         id(${device_type}_Total_Energy_Bought).state +

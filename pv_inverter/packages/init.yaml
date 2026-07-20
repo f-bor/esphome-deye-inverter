@@ -13,7 +13,15 @@
 # limitations under the License.
 
 substitutions:
-  update_interval: 5s
+  # Modbus refresh tiers. skip_updates=N refreshes a range every N+1 cycles.
+  update_interval: 1s
+  fast_skip_updates: "0" # 1s: live power, current, voltage and SoC
+  medium_skip_updates: "4" # 5s: temperatures, states and alarms
+  energy_skip_updates: "29" # 30s: daily and total energy counters
+  config_skip_updates: "59" # 60s: writable inverter configuration
+  static_skip_updates: "599" # 10min: identity, ratings and firmware
+  modbus_send_wait_time: 250ms
+  modbus_turnaround_time: 50ms
 
 esphome:
   name: "${name}"
@@ -64,6 +72,8 @@ uart:
 modbus:
   id: modbus_1
   uart_id: modbus_uart
+  send_wait_time: ${modbus_send_wait_time}
+  turnaround_time: ${modbus_turnaround_time}
 
 modbus_controller:
   - id: ${modbus_controller_id}

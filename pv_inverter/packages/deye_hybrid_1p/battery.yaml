@@ -19,6 +19,7 @@ sensor:
     id: daily_battery_charge
     register_type: holding
     address: 70
+    skip_updates: ${energy_skip_updates}
     unit_of_measurement: "kWh"
     device_class: energy
     state_class: "total_increasing"
@@ -146,6 +147,7 @@ select:
     name: "Battery Operation Mode"
     id: battery_operation_mode
     address: 213
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     entity_category: config
     icon: "mdi:battery-check"
@@ -159,6 +161,7 @@ select:
     modbus_controller_id: ${modbus_controller_id}
     name: "Battery BMS Type"
     address: 325
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     icon: "mdi:battery-charging-high"
     entity_category: config
@@ -181,6 +184,7 @@ select:
     name: "Battery Type"
     id: battery_type
     address: 200
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     entity_category: config
     icon: "mdi:battery-check"

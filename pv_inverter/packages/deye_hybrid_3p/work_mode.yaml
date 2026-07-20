@@ -55,6 +55,7 @@ switch:
     id: switch_solar_sell
     register_type: holding
     address: 145
+    skip_updates: ${config_skip_updates}
     bitmask: 1
     icon: "mdi:toggle-switch"
 
@@ -100,6 +101,7 @@ number:
     min_value: 0
     step: 1
     address: 340
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     mode: box
     icon: "mdi:solar-power"

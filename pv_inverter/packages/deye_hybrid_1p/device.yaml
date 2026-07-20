@@ -29,6 +29,7 @@ sensor:
     id: device_rated_power_raw
     register_type: holding
     address: 16
+    skip_updates: ${static_skip_updates}
     unit_of_measurement: W
     device_class: power
     accuracy_decimals: 0
@@ -98,6 +99,7 @@ switch:
     id: switch_power
     register_type: holding
     address: 43
+    skip_updates: ${config_skip_updates}
     bitmask: 1
     entity_category: config
     icon: mdi:toggle-switch
@@ -108,6 +110,7 @@ text_sensor:
     bitmask: 0
     register_type: holding
     address: 59
+    skip_updates: ${medium_skip_updates}
     raw_encode: HEXBYTES
     name: Running Status
     icon: mdi:play-circle
@@ -128,6 +131,7 @@ text_sensor:
     name: Device Type
     register_type: holding
     address: 0
+    skip_updates: ${static_skip_updates}
     bitmask: 0
     raw_encode: HEXBYTES
     icon: mdi:chip
@@ -157,6 +161,7 @@ text_sensor:
     name: Device Serial Number
     register_type: holding
     address: 3
+    skip_updates: ${static_skip_updates}
     response_size: 10
     bitmask: 0
     raw_encode: NONE
@@ -180,6 +185,7 @@ text_sensor:
     register_type: holding
     entity_category: diagnostic
     address: 101
+    skip_updates: ${medium_skip_updates}
     response_size: 4
     bitmask: 0
     raw_encode: NONE
@@ -243,6 +249,7 @@ number:
     id: self_check_time
     register_type: holding
     address: 61
+    skip_updates: ${config_skip_updates}
     unit_of_measurement: "s"
     min_value: 0
     max_value: 1000
@@ -257,6 +264,7 @@ select:
     modbus_controller_id: ${modbus_controller_id}
     name: "Meter"
     address: 326
+    skip_updates: ${config_skip_updates}
     value_type: U_WORD
     entity_category: config
     icon: "mdi:connection"

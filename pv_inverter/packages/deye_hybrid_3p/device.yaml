@@ -19,6 +19,7 @@ sensor:
     id: inverter_datetime_raw1
     register_type: holding
     address: 62
+    skip_updates: ${config_skip_updates}
     accuracy_decimals: 0
     value_type: U_WORD
     internal: true
@@ -120,6 +121,7 @@ sensor:
     id: device_rated_power_raw
     register_type: holding
     address: 20
+    skip_updates: ${static_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     accuracy_decimals: 0
@@ -179,6 +181,7 @@ sensor:
     name: "Communications Board Failure Status"
     register_type: holding
     address: 548
+    skip_updates: ${medium_skip_updates}
     accuracy_decimals: 0
     value_type: U_WORD
     icon: "mdi:alert-circle"
@@ -220,6 +223,7 @@ binary_sensor:
     name: "Turn Off On Status"
     register_type: holding
     address: 551
+    skip_updates: ${medium_skip_updates}
     bitmask: 0x1
     device_class: running
     icon: "mdi:power"
@@ -232,6 +236,7 @@ switch:
     id: switch_power
     register_type: holding
     address: 80
+    skip_updates: ${config_skip_updates}
     bitmask: 1
     entity_category: config
     icon: "mdi:toggle-switch"
@@ -338,6 +343,7 @@ text_sensor:
     bitmask: 0
     register_type: holding
     address: 500
+    skip_updates: ${medium_skip_updates}
     raw_encode: HEXBYTES
     name: "Running Status"
     icon: "mdi:play-circle"
@@ -355,7 +361,7 @@ text_sensor:
 
   - platform: template
     name: "Device Date Time"
-    update_interval: 10s
+    update_interval: 5s
     icon: "mdi:clock"
     entity_category: diagnostic
     lambda: |-
@@ -391,6 +397,7 @@ text_sensor:
     name: "Device Type"
     register_type: holding
     address: 0
+    skip_updates: ${static_skip_updates}
     bitmask: 0
     raw_encode: HEXBYTES
 
@@ -461,6 +468,7 @@ text_sensor:
     name: "Device MCU Board Version"
     register_type: holding
     address: 10
+    skip_updates: ${static_skip_updates}
     bitmask: 0
     raw_encode: NONE
 
@@ -512,6 +520,7 @@ text_sensor:
     name: "Device Self-check"
     register_type: holding
     address: 36
+    skip_updates: ${config_skip_updates}
     bitmask: 0
     raw_encode: HEXBYTES
     icon: "mdi:check-circle"
@@ -667,6 +676,7 @@ number:
     id: self_check_time
     register_type: holding
     address: 61
+    skip_updates: ${config_skip_updates}
     unit_of_measurement: "s"
     min_value: 0
     max_value: 1000

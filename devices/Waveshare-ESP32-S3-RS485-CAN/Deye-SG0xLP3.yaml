@@ -21,6 +21,16 @@ substitutions:
 
   modbus_inverter_address: "0x01" # Default Modbus address, should be changed to match inverter settings
 
+  # Optional Modbus refresh profile (skip_updates=N reads every N+1 update cycles)
+  # update_interval: 1s
+  # fast_skip_updates: "0" # 1s
+  # medium_skip_updates: "4" # 5s
+  # energy_skip_updates: "29" # 30s
+  # config_skip_updates: "59" # 60s
+  # static_skip_updates: "599" # 10min
+  # modbus_send_wait_time: 250ms
+  # modbus_turnaround_time: 50ms
+
   # Safe Mode parameters for supported inverters
   safe_mode_delay: 600s # Time after which transition to safe mode and setting default operating parameters will occur
   default_maximum_battery_charge_current: "140" # Amps

@@ -17,6 +17,7 @@ sensor:
     name: "DC Temperature"
     register_type: holding
     address: 90
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "°C"
     device_class: temperature
     accuracy_decimals: 1

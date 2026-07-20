@@ -49,6 +49,7 @@ sensor:
     id: generator_l1_voltage
     register_type: holding
     address: 661
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "V"
     device_class: voltage
     accuracy_decimals: 1
@@ -165,6 +166,7 @@ switch:
     name: "Generator"
     register_type: holding
     address: 132
+    skip_updates: ${config_skip_updates}
     bitmask: 1
     entity_category: config
     icon: "mdi:generator-stationary"
