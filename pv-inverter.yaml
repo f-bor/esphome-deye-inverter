@@ -21,15 +21,19 @@ substitutions:
 
   modbus_inverter_address: "0x01" # Default Modbus address, should be changed to match inverter settings
 
-  # Optional Modbus refresh profile (skip_updates=N reads every N+1 update cycles)
+  # Optional optimized refresh profile (skip_updates=N reads every N+1 update cycles)
   # update_interval: 1s
   # fast_skip_updates: "0" # 1s
   # medium_skip_updates: "4" # 5s
   # energy_skip_updates: "29" # 30s
   # config_skip_updates: "59" # 60s
   # static_skip_updates: "599" # 10min
-  # modbus_send_wait_time: 250ms
-  # modbus_turnaround_time: 50ms
+  # split_refresh_ranges: "true"
+  # device_datetime_update_interval: 5s
+  # tou_schedule_update_interval: 60s
+  # tou_all_update_interval: 60s
+  # calculated_power_update_interval: 1s
+  # calculated_energy_update_interval: 30s
 
   # Safe Mode parameters for supported inverters
   safe_mode_delay: 600s # Time after which transition to safe mode and setting default operating parameters will occur
@@ -63,6 +67,8 @@ uart:
   rx_pin: GPIO16
 
 modbus:
+  # send_wait_time: 250ms # Optional optimized Modbus timing
+  # turnaround_time: 50ms
 #  flow_control_pin: GPIO4 # Uncomment and set appropriate pin if your TTL converter requires it
 
 #logger:

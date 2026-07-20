@@ -168,7 +168,7 @@ sensor:
     device_class: energy
     state_class: "total_increasing"
     accuracy_decimals: 1
-    update_interval: 30s
+    update_interval: ${calculated_energy_update_interval}
     icon: "mdi:transmission-tower-import"
     lambda: |-
       auto high = id(total_energy_bought_high_bytes).state;

@@ -361,7 +361,7 @@ text_sensor:
 
   - platform: template
     name: "Device Date Time"
-    update_interval: 5s
+    update_interval: ${device_datetime_update_interval}
     icon: "mdi:clock"
     entity_category: diagnostic
     lambda: |-
