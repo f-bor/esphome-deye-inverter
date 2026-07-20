@@ -115,6 +115,7 @@ sensor:
     name: "Output L2 Power"
     register_type: holding
     address: 634
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"

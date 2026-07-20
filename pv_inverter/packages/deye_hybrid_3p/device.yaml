@@ -248,6 +248,7 @@ text_sensor:
     register_type: holding
     response_size: 8
     address: 555
+    skip_updates: ${medium_skip_updates}
     raw_encode: NONE
     name: "Error Code"
     icon: "mdi:alert-decagram"
@@ -638,6 +639,7 @@ text_sensor:
     name: "Device Fault"
     register_type: holding
     address: 555
+    skip_updates: ${medium_skip_updates}
     response_size: 8
     bitmask: 0
     entity_category: diagnostic

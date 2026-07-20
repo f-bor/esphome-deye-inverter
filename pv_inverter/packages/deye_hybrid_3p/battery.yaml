@@ -162,6 +162,7 @@ sensor:
     id: battery_corrected_capacity
     register_type: holding
     address: 592
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "Ah"
     accuracy_decimals: 0
     value_type: U_WORD

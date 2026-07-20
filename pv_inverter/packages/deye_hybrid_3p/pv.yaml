@@ -104,6 +104,7 @@ sensor:
     name: "PV1 Current"
     register_type: holding
     address: 677
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "A"
     device_class: current
     accuracy_decimals: 1

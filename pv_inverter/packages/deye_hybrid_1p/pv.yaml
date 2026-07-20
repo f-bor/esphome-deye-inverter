@@ -33,6 +33,7 @@ sensor:
     id: pv2_power
     register_type: holding
     address: 187
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"
@@ -102,6 +103,7 @@ sensor:
     name: "PV1 Current"
     register_type: holding
     address: 110
+    skip_updates: ${medium_skip_updates}
     unit_of_measurement: "A"
     device_class: current
     accuracy_decimals: 1

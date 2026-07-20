@@ -32,6 +32,7 @@ sensor:
     name: "Grid L2 Power"
     register_type: holding
     address: 623
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"
@@ -262,6 +263,7 @@ sensor:
     name: "External CT L2 Power"
     register_type: holding
     address: 617
+    skip_updates: ${fast_skip_updates}
     unit_of_measurement: "W"
     device_class: power
     state_class: "measurement"
@@ -392,6 +394,7 @@ binary_sensor:
     name: "CT L1 Self Test"
     register_type: holding
     address: 597
+    skip_updates: ${medium_skip_updates}
     bitmask: 0x01
     device_class: problem
     filters:
